@@ -1,0 +1,135 @@
+/* Arquivo: explorarLivros.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0E144F;
+    color: #FFFFFF;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #0E144F;
+}
+
+header img {
+    max-height: 100px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 240px;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+.search-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    padding: 10px;
+    width: 50%;
+    max-width: 500px;
+    border: none;
+    border-radius: 8px;
+    margin-right: 10px;
+    background-color: #3C4EA0;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #5A82F7;
+    color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+   
+}
+
+button:hover {
+    background-color: #ffffff;
+}
+
+.categories-section,
+.books-section {
+    background-color: #1C245B;
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.categories-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.categories-section ul li a {
+    padding: 10px 20px;
+    background-color: #5A82F7;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.categories-section ul li a:hover {
+    background-color: #3C4EA0;
+}
+
+.books-section .book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.books-section .book-item {
+    background-color: #3C4EA0;
+    border-radius: 16px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+}
+
+.books-section .book-item img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.books-section .book-item h4 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #0E144F;
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 14px;
+}

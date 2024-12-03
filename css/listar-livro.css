@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f1441;
+    color: #fff;
+}
+
+header {
+    background-color: #081133;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 200px;
+    gap: 0px;
+    justify-content: center;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: #2d3a87;
+    color: #fff;
+    padding: 10px;
+}
+
+tbody td {
+    background-color: #3f5299;
+    padding: 10px;
+    text-align: center;
+}
+
+.edit-btn, .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    color: #ccc;
+}

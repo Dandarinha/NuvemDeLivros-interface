@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Aluno - Nuvem de Livros</title>
+    <link rel="stylesheet" href="css/cadastro-aluno.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="assets/img/logotipo.png" alt="Logo da Nuvem de Livros" width="150" height="100"/>
+            
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cadastro-livro.html">Cadastrar Livro</a></li>
+                <li><a href="listar-aluno.html">Listar</a></li>
+                <li><a href="explorar.html">Explorar Livros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>Cadastrar Aluno</h2>
+            <form>
+                <input type="text" placeholder="Insira o nome do aluno">
+                <input type="text" placeholder="Insira o sobrenome do aluno">
+                <input type="date" placeholder="Insira a data de nascimento do aluno">
+                <input type="text" placeholder="Insira o endereço do aluno">
+                <input type="email" placeholder="Insira o email do aluno">
+                <input type="tel" placeholder="Insira o telefone do aluno">
+                <button type="submit" onclick="enviaFormulario(event)">Cadastrar Aluno</button>
+            </form>
+        </div>
+    </main>
+    <script src="js/aluno.js"></script>
+</body>
+</html>

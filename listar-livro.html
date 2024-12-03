@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuvem de Livros - Listar Livros</title>
+    <link rel="stylesheet" href="css/listar-livro.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="assets/img/logotipo.png" alt="Logo da Nuvem de Livros" width="150" height="100"/>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cadastro-aluno.html">Cadastrar</a>
+            <a href="listar-aluno.html">Listar Aluno</a>
+            <a href="explorar.html">Explorar Livros</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Listar Livros</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID LIVRO</th>
+                    <th>TÍTULO</th>
+                    <th>AUTOR(A)</th>
+                    <th>EDITORA</th>
+                    <th>ANO DE PUBLICAÇÃO</th>
+                    <th>QUANTIDADE DISPONÍVEL</th>
+                    <th>ISBN</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Dom Casmurro</td>
+                    <td>Machado de Assis</td>
+                    <td>Nova Fronteira</td>
+                    <td>1899</td>
+                    <td>15</td>
+                    <td>9788520935329</td>
+                    <td>
+                        <button class="edit-btn"><img src="assets/img/lapis.png" alt="editar" width="20" height="20"></button>
+                        <button class="delete-btn"><img src="assets/img/excluir.png" alt="excluir" width="20" height="20"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Romeu e Julieta</td>
+                    <td>William Shakespeare</td>
+                    <td>Martin Claret</td>
+                    <td>1597</td>
+                    <td>9</td>
+                    <td>9788544001045</td>
+                    <td>
+                        <button class="edit-btn"><img src="assets/img/lapis.png" alt="editar" width="20" height="20"></button>
+                        <button class="delete-btn"><img src="assets/img/excluir.png" alt="excluir" width="20" height="20"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>A Cabana</td>
+                    <td>William P. Young</td>
+                    <td>Editora Arqueiro</td>
+                    <td>2008</td>
+                    <td>11</td>
+                    <td>9788599296363</td>
+                    <td>
+                        <button class="edit-btn"><img src="assets/img/lapis.png" alt="editar" width="20" height="20"></button>
+                        <button class="delete-btn"><img src="assets/img/excluir.png" alt="excluir" width="20" height="20"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <script src="js/livro.js"></script>
+</body>
+</html>

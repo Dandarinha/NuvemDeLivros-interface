@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuvem de Livros - Listar Alunos</title>
+    <link rel="stylesheet" href="css/listar-aluno.css">
+</head>
+<body onload="recuperaListaAluno()">
+    <header>
+        <div class="container">
+        <img src="assets/img/logotipo.png" alt="Logo da Nuvem de Livros" width="150" height="100"/>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cadastro-aluno.html">Cadastrar</a>
+            <a href="listar-livro.html">Listar livro</a>
+            <a href="explorar.html">Explorar Livros</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Listar Alunos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID ALUNO</th>
+                    <th>R.A.</th>
+                    <th>ALUNO</th>
+                    <th>E-MAIL</th>
+                    <th>CELULAR</th>
+                    <th>DATA DE NASCIMENTO</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>5460</td>
+                    <td>Ana Elize Souza</td>
+                    <td>anasouza@gmail.com</td>
+                    <td>(16) 99244-1812</td>
+                    <td>15/07/1988</td>
+                    <td>
+                        <button class="edit-btn"><img src="assets/img/lapis.png" alt="editar" width="20" height="20"></button>
+                        <button class="delete-btn"><img src="assets/img/excluir.png" alt="excluir" width="20" height="20"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>5023</td>
+                    <td>Ellen Fernandez</td>
+                    <td>fernandez00@gmail.com</td>
+                    <td>(11) 92445-1123</td>
+                    <td>10/05/2002</td>
+                    <td>
+                        <button class="edit-btn"><img src="assets/img/lapis.png" alt="editar" width="20" height="20"></button>
+                        <button class="delete-btn"><img src="assets/img/excluir.png" alt="excluir" width="20" height="20"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>5983</td>
+                    <td>Marcos Luiz Ruas</td>
+                    <td>luizruas01@gmail.com</td>
+                    <td>(21) 92760-6321</td>
+                    <td>23/09/2005</td>
+                    <td>
+                        <button class="edit-btn"><img src="assets/img/lapis.png" alt="editar" width="20" height="20"></button>
+                        <button class="delete-btn"><img src="assets/img/excluir.png" alt="excluir" width="20" height="20"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <script src="js/aluno.js"></script>
+</body>
+</html>

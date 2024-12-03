@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar Livros - Nuvem de Livros</title>
+    <link rel="stylesheet" href="css/explorar.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="assets/img/logotipo.png" alt="Logo da Nuvem de Livros" width="150" height="100"/>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cadastro-aluno.html">Cadastrar</a></li>
+                <li><a href="listar-aluno.html">Listar</a></li>
+                <li><a href="explorar.html" class="active">Explorar Livros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <h2>Explorar Livros</h2>
+            <input type="text" placeholder="Digite o título, autor ou gênero do livro" class="search-bar">
+            <button type="button">Buscar</button>
+        </section>
+
+        <section class="categories-section">
+            <h3>Categorias</h3>
+            <ul>
+                <li><a href="#">Ficção</a></li>
+                <li><a href="#">História</a></li>
+                <li><a href="#">Ciências</a></li>
+                <li><a href="#">Literatura Brasileira</a></li>
+                <li><a href="#">Infantil</a></li>
+                <li><a href="#">Autoajuda</a></li>
+            </ul>
+        </section>
+
+        <section class="books-section">
+            <h3>Livros Populares</h3>
+            <div class="book-list">
+                <div class="book-item">
+                    <img src="assets/img/cortiço livro.jpg" alt="Capa do Livro 1"  width="320" height="230">
+                    <h4>O cortiço</h4>
+                    <p>Autor: Aluísio Azevedo</p>
+                </div>
+                <div class="book-item">
+                    <img src="assets/img/torto arado.jpg" alt="Capa do Livro 2"  width="320" height="230">
+                    <h4>Torto Arado</h4>
+                    <p>Autor: Itamar Vieira Junior</p>
+                </div>
+                <div class="book-item">
+                    <img src="assets/img/depois das cinco.jpg" alt="Capa do Livro 3"  width="320" height="230"> 
+                    <h4>Depois das Cinco</h4>
+                    <p>Autor: Bruno Haulfermet</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Nuvem de Livros. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

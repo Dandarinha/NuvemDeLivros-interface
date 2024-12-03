@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Livro - Nuvem de Livros</title>
+    <link rel="stylesheet" href="css/cadastro-livro.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/img/logotipo.png" alt="Logo da Nuvem de Livros" width="150" height="100">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cadastro-aluno.html">Cadastrar Aluno</a></li>
+                <li><a href="listar-aluno.html">Listar</a></li>
+                <li><a href="explorar.html">Explorar Livros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>Cadastrar Livro</h2>
+            <form>
+                <input type="text" placeholder="Inserir o título do livro">
+                <input type="text" placeholder="Inserir o nome do autor(es)">
+                <input type="text" placeholder="Inserir a editora do livro">
+                <input type="number" placeholder="Inserir o ano de publicação do livro">
+                <input type="text" placeholder="Inserir o isbn do livro">
+                <input type="number" placeholder="Inserir a quantidade total de livros">
+                <input type="number" placeholder="Inserir a quantidade disponível de livros">
+                <input type="number" placeholder="Inserir o valor de aquisição do livro">
+                <input type="text" placeholder="Inserir o status do livro">
+
+                <button type="submit" onclick="enviaFormulario(event)">Cadastrar</button>
+            </form>
+        </div>
+    </main>
+    <script src="js/livro.js"></script>
+</body>
+</html>
