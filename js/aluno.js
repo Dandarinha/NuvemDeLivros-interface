@@ -1,125 +1,133 @@
-async function enviaFormulario(event) {
-    event.preventDefault();
-    const dadosAluno = {
-        "nome": document.querySelectorAll('input')[0].value,
-        "sobrenome": document.querySelectorAll('input')[1].value,
-        "dataNascimento": document.querySelectorAll('input')[2].value,
-        "endereco": document.querySelectorAll('input')[3].value,
-        "email": document.querySelectorAll('input')[4].value,
-        "celular": document.querySelectorAll('input')[5].value,
+// Função assíncrona para enviar os dados do formulário ao servidor
+async function enviarFormulario() {
+    // Recupera os dados do formulário e os organiza em um objeto JSON
+    const alunoDTO = {
+        "nome": document.querySelectorAll("input")[0].value,            
+        "ra": document.querySelectorAll("input")[1].value,              
+        "dataNascimento": document.querySelectorAll("input")[2].value,  
+        "endereco": document.querySelectorAll("input")[3].value,       
+        "email": document.querySelectorAll("input")[4].value,         
+        "telefone": document.querySelectorAll("input")[5].value        
     }
 
     try {
-        const url = "http://localhost:3332/novo/aluno";
-        const respostaServdidor = await fetch(url, {
-            method: "POST",
+        // Envia uma requisição POST para o servidor com os dados do aluno
+        const respostaServidor = await fetch("http://localhost:3332/novo/alunos", {
+            method: 'POST',
             headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(dadosAluno)
+                'Content-Type': 'application/json'},  
+            body: JSON.stringify(alunoDTO)        
         });
-
-        console.log(!respostaServdidor.ok);
-
-        if(!respostaServdidor.ok) {
-            alert('algum erro no servidor');
+    
+        // Verifica se a resposta do servidor não foi bem-sucedida
+        if (!respostaServidor.ok) {
+            throw new Error("Erro ao enviar os dados para o servidor. Entre em contato com o administrador do sistema.");
         }
 
-        alert('aluno cadastrado com sucesso!');
+        // Notifica o usuário em caso de sucesso
+        alert("Aluno cadastrado com sucesso!");
     } catch (error) {
-        alert(error);
+        // Trata erros de rede ou problemas no envio da requisição
+        console.log(error);
+        alert('Erro ao se comunicar com o servidor. ${error}');
     }
+}
 
-    async function recuperaListaAluno() {
-        try {
-            //faz a requisição no servidor e armazena a resposta
-            const respostaServdidor = await fetch('http://localhost:3332/lista/Alunos');
+// Função assíncrona para recuperar a lista de alunos do servidor
+async function recuperarListaAlunos() {
+    try {
+        // Faz uma requisição GET para obter a lista de alunos
+        const respostaServidor = await fetch('http://localhost:3332/lista/alunos');
 
-            //verifica se a resposta foi bem sucedida (true)
-            if(respostaServdidor.ok) {
-                //armazenar a lista de alunos
-                const listadeAluno = await respostaServdidor.json();
-                //chama a função de criar tabela passando a lista como parâmetro
-                criarTabelaAluno(listadeAluno);
-            }
-
-            return null;
-        }catch (error) {
-            console.error(error);
-            return null;
+        // Verifica se a resposta não foi bem-sucedida
+        if (!respostaServidor.ok) {
+            throw new Error("Erro ao recuperar a lista de alunos.");
         }
+
+        // Converte a resposta em JSON
+        const listaDeAlunos = await respostaServidor.json();
+
+        // Verifica se a resposta é um array válido e chama a função para criar a tabela
+        if (Array.isArray(listaDeAlunos)) {
+            criarTabelaAlunos(listaDeAlunos);
+        } else {
+            console.error("Resposta da API inválida:", listaDeAlunos);
+        }
+    } catch (error) {
+        // Trata erros na recuperação da lista de alunos
+        console.error("Erro ao recuperar a lista de alunos:", error.message);
     }
+}
 
-    function criarTabelaAluno(Alunos) {
-        try {
-            //recuperar um elemento tbody
-            const tbody = document.querySelector('tbody');
+// Função assíncrona para criar a tabela de alunos na interface
+async function criarTabelaAlunos(alunos) {
+    try {
+        // Seleciona o elemento <tbody> da tabela onde os dados serão inseridos
+        const tBody = document.querySelector('tbody');
 
-            //percorro o array de alunos
-            Alunos.map(aluno => {
-                //criar a estrutura da tabela 
-                //cria o tr (table row)
-                const tr = document.createElement('tr');
+        // Remove as linhas antigas para evitar duplicação ao atualizar a tabela
+        tBody.innerHTML = "";
 
-               // cria os td (table data) para popular a tabela
+        // Itera sobre cada aluno da lista recebida
+        alunos.forEach(aluno => {
+            const tr = document.createElement('tr'); // Cria uma nova linha na tabela
+
+            // Cria e adiciona a célula para o ID do aluno
             const tdIdAluno = document.createElement('td');
-            // insere o id do aluno no tdIdAluno
             tdIdAluno.textContent = aluno.id;
-            // inserindo tdIdCliente na estrutura do tr
             tr.appendChild(tdIdAluno);
 
-            // cria o td para o nome do alunos
+            //Cria e adiciona a célula para o Ra do aluno
+            const tdRaAluno = document.createElement('td');
+            tdRaAluno.textContent = aluno.ra;
+            tr.appendChild(tdRaAluno);
+
+            // Cria e adiciona a célula para o nome do aluno
             const tdNomeAluno = document.createElement('td');
-            // insere o nome do aluno
             tdNomeAluno.textContent = aluno.nome;
-            // insiro tdNomeAluno como filho de tr
             tr.appendChild(tdNomeAluno);
 
-            // cria o td para o CPF do aluno
-            const tdCpfAluno = document.createElement('td');
-            // insere o cpf do aluno
-            tdCpfAluno.textContent = aluno.cpf;
-            // insere tdCpfAluno como filho de tr
-            tr.appendChild(tdCpfAluno);
+            // Cria e adiciona a célula para o sobrenome do aluno
+            const tdSobrenome = document.createElement('td');
+            tdSobrenome.textContent = aluno.sobrenome;
+            tr.appendChild(tdSobrenome);
 
-            // cria o td para o email do Aluno
-            const tdCelular = document.createElement('td');
-            // insere o email do Aluno
-            tdCelular.textContent = aluno.celular;
-            // insere tdEmail como filho de tr
-            tr.appendChild(tdCelular);
+            // Cria e adiciona a célula para o celular do aluno
+            const tdCelularAluno = document.createElement('td');
+            tdCelularAluno.textContent = aluno.celular;
+            tr.appendChild(tdCelularAluno);
 
-            // cria o td para as ações
+            //Cria e adiciona a célula para data de nascimento do aluno
+            const tdDataNascimentoAluno = document.createElement('td');
+            tdDataNascimentoAluno.textContent = aluno.dataNascimento;
+            tr.appendChild(tdDataNascimentoAluno);
+
+
+            // Cria a célula de ações (botões de editar e deletar)
             const tdAcoes = document.createElement('td');
-            // cria a imagem de editar
+
+            // Adiciona o botão de editar com um ícone
             const imgEditar = document.createElement('img');
-            // insere o caminho da imagem
-            imgEditar.src = './assets/img/lapis.png';
-            // insere o texto alternativo
+            imgEditar.src = './assets/icons/pencil-square.svg';
             imgEditar.alt = 'Editar';
-            // insere a imagem como filho de tdAcoes
+            imgEditar.classList.add('btn-editar');
             tdAcoes.appendChild(imgEditar);
 
-            // cria a imagem de deletar
+            // Adiciona o botão de deletar com um ícone
             const imgDeletar = document.createElement('img');
-            // insere o caminho da imagem
             imgDeletar.src = './assets/icons/trash-fill.svg';
-            // insere o texto alternativo
             imgDeletar.alt = 'Deletar';
-            // insere a imagem como filho de tdAcoes
+            imgDeletar.classList.add('btn-deletar');
             tdAcoes.appendChild(imgDeletar);
 
-            // insere tdAcoes como filho de tr
+            // Adiciona a célula de ações na linha
             tr.appendChild(tdAcoes);
 
-            // insere tr como filho de tBody
+            // Adiciona a linha completa na tabela
             tBody.appendChild(tr);
         });
-        }catch (error) {
-            //em caso de erro, imprime no console
-            console.error(error);
-            //retorna um valor nulo
-            return null;
-        }
+    } catch (error) {
+        // Trata erros ao criar a tabela de alunos
+        console.error("Erro ao criar a tabela de alunos:", error.message);
     }
 }
